@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1711410715 source:c:\users\usuario\documents\poo\poo - pimienta\actividad final\actividad_final\main.cpp
+	<iostream>
+	<stdlib.h>
+	"clases.h"
+	"subrutinas.h"
+
+1711403155 c:\users\usuario\documents\poo\poo - pimienta\actividad final\actividad_final\clases.h
+
+1711405738 c:\users\usuario\documents\poo\poo - pimienta\actividad final\actividad_final\subrutinas.h
+
