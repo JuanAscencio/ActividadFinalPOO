@@ -1,0 +1,7 @@
+-Entrada a n número a cajones
+-Opciones:
+	Registrar
+	Consultar
+	Dar de baja
+-Mostrar espacios disponibes
+-Calcular cuanto se cobrara por estar 'x' tiempo
