@@ -31,27 +31,27 @@ int main()
         limpiarPantalla();
         switch(opcionMenuPrincipal){
         case REGISTRA_VEHICULO:
-            cout <<"case1";
+            cout <<"case1"<< endl;
             limpiarPantallaPausado();
             break;
         case ELIMINAR_VEHICULO:
-            cout <<"case2";
+            cout <<"case2"<< endl;
             limpiarPantallaPausado();
             break;
         case LISTAR_VEHICULOS:
-            cout <<"case3";
+            cout <<"case3"<< endl;
             limpiarPantallaPausado();
             break;
         case EDITAR_VEHICULO:
-            cout <<"case4";
+            cout <<"case4"<< endl;
             limpiarPantallaPausado();
             break;
         case SALIR:
-            cout <<"case5, adio";
+            cout <<"case5, adio"<< endl;
             pausar();
             break;
         default:
-            cout <<"ingrese un Valor válido";
+            cout <<"ingrese un Valor válido"<< endl;
             limpiarPantallaPausado();
         }
     }while(opcionMenuPrincipal!=SALIR);
