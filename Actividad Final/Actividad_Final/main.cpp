@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include "clases.h"
 #include "subrutinas.h"
+#include "funciones.h"
+#include "variablesGlobales.h"
 
 enum {REGISTRA_VEHICULO=1,ELIMINAR_VEHICULO,LISTAR_VEHICULOS,EDITAR_VEHICULO,SALIR};
 
@@ -9,13 +11,13 @@ using namespace std;
 
 int main()
 {
-    int /*cajonesDefecto=5,*/cajonesCarro,cajonesMoto,opcionMenuPrincipal;
     setlocale(LC_ALL,"");
 
     //Función registrar cajones
     cout << "Estacionamiento" << endl;
     cout << "Ingrese el numero de cajones para automóvil: "; cin >> cajonesCarro;
     cout << "Ingrese el numero de cajones para motocicleta: "; cin >> cajonesMoto;
+
 
     //Funcion menú principal
     do{
@@ -26,7 +28,7 @@ int main()
         cout << "3. Listar vehículos" << endl;
         cout << "4. Editar vehículo" << endl;
         cout << "5. Salir" << endl;
-        cout << "Opción: " ; cin >> opcionMenuPrincipal;
+        ValidarMenuPrincipal();
 
         limpiarPantalla();
         switch(opcionMenuPrincipal){
@@ -51,7 +53,8 @@ int main()
             pausar();
             break;
         default:
-            cout <<"ingrese un Valor válido"<< endl;
+            cout <<"Formato no válido"<< endl;
+            cout <<"Intentelo de nuevo"<< endl<<endl;
             limpiarPantallaPausado();
         }
     }while(opcionMenuPrincipal!=SALIR);

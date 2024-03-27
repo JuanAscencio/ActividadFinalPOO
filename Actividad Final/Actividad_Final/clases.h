@@ -15,6 +15,7 @@ private:
     string color;
 public:
     Vehiculo(string,string,string,string,string,string);
+    ~Vehiculo();
     virtual void mostrarDatos();
     void setMarca(string m);
     void setModelo(string m);
@@ -38,7 +39,8 @@ Vehiculo::Vehiculo(string _marca,string _modelo,string _nota,string _transmision
     placas = _placas;
     color = _color;
 }
-
+Vehiculo::~Vehiculo(){
+}
 void Vehiculo::mostrarDatos(){
     cout << "Los datos del vehículo son:" << endl;
     cout << "Marca:                 " << marca << endl;
@@ -99,6 +101,7 @@ private:
     short numeroPuertas;
 public:
     Automovil(string,string,string,string,string,string,short,short);
+    ~Automovil();
     void mostrarDatos();
     void setNumeroVentanas(short nV);
     void setNumeroPuertas(short nP);
@@ -111,6 +114,9 @@ Automovil::Automovil(string _marca,string _modelo,string _nota,string _transmisi
                                                                             _placas, _color){
     numeroPuertas = _numeroPuertas;
     numeroVentanas = _numeroVentanas;
+}
+
+Automovil::~Automovil(){
 }
 
 void Automovil::mostrarDatos(){
@@ -140,6 +146,7 @@ private:
     short numeroCascos;
 public:
     Motocicleta(string,string,string,string,string,string,short);
+    ~Motocicleta();
     void mostrarDatos();
     void setNumeroCascos(short nC);
     short getNumeroCascos();
@@ -148,6 +155,9 @@ public:
 Motocicleta::Motocicleta(string _marca,string _modelo,string _nota,string _transmision,string _placas,string _color,
                      short _numeroCascos) : Vehiculo(_marca, _modelo, _nota,_transmision,_placas, _color){
     numeroCascos = _numeroCascos;
+}
+
+Motocicleta::~Motocicleta(){
 }
 
 void Motocicleta::mostrarDatos(){

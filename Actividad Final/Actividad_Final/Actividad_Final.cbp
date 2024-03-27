@@ -33,8 +33,10 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="clases.h" />
+		<Unit filename="funciones.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="subrutinas.h" />
+		<Unit filename="variablesGlobales.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
