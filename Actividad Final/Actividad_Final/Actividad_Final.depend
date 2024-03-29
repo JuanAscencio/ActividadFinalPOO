@@ -9,7 +9,7 @@
 
 1711405738 c:\users\usuario\documents\poo\poo - pimienta\actividad final\actividad_final\subrutinas.h
 
-1711501285 source:c:\users\usuario\documents\git\actividadfinalpoo\actividad final\actividad_final\main.cpp
+1711750210 source:c:\users\usuario\documents\git\actividadfinalpoo\actividad final\actividad_final\main.cpp
 	<iostream>
 	<stdlib.h>
 	"clases.h"
@@ -17,21 +17,21 @@
 	"funciones.h"
 	"variablesGlobales.h"
 
-1711484730 c:\users\usuario\documents\git\actividadfinalpoo\actividad final\actividad_final\clases.h
+1711742882 c:\users\usuario\documents\git\actividadfinalpoo\actividad final\actividad_final\clases.h
 
-1711501249 c:\users\usuario\documents\git\actividadfinalpoo\actividad final\actividad_final\subrutinas.h
+1711750656 c:\users\usuario\documents\git\actividadfinalpoo\actividad final\actividad_final\subrutinas.h
 	<string>
 	<cctype>
 	<cstdlib>
 	"funciones.h"
 	"variablesGlobales.h"
 
-1711500983 c:\users\usuario\documents\git\actividadfinalpoo\actividad final\actividad_final\funciones.h
+1711746971 c:\users\usuario\documents\git\actividadfinalpoo\actividad final\actividad_final\funciones.h
 	"variablesGlobales.h"
 	<string>
 	<cctype>
 	<cstdlib>
 	<iostream>
 
-1711500412 c:\users\usuario\documents\git\actividadfinalpoo\actividad final\actividad_final\variablesglobales.h
+1711749506 c:\users\usuario\documents\git\actividadfinalpoo\actividad final\actividad_final\variablesglobales.h
 

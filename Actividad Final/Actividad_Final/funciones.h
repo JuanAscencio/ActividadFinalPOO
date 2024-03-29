@@ -42,8 +42,6 @@ int ConvertirStringNumero(string x) {
         res += x[i] - '0';
     }
 
-    //opcionMenuPrincipal=ini;
-
     return ini?-res:res;
 
 }

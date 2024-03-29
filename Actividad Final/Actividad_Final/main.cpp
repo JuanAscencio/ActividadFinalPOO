@@ -29,21 +29,56 @@ int main()
         cout << "4. Editar vehículo" << endl;
         cout << "5. Salir" << endl;
         ValidarMenuPrincipal();
-
         limpiarPantalla();
+
         switch(opcionMenuPrincipal){
-        case REGISTRA_VEHICULO:
-            cout <<"case1"<< endl;
+        case REGISTRA_VEHICULO:{
+            cout <<"Estacionamiento"<< endl;
+            cout <<"¿Desea ingresar un automóvil o una motocicleta?"<< endl;
+            cout <<"1.- Automóvil "<< endl;
+            cout <<"2.- Motocicleta "<< endl;
+            ValidarOpciones();
+            limpiarPantalla();
+
+            if(opcion == 1 ){
+                crearArregloCoches();
+            }else if(opcion == 2){
+                    crearArregloMotos();
+                    }else{
+                        cout << "Formato no válido, intentelo de nuevo." << endl;
+                    }
+
             limpiarPantallaPausado();
             break;
+            }
+
         case ELIMINAR_VEHICULO:
             cout <<"case2"<< endl;
             limpiarPantallaPausado();
             break;
-        case LISTAR_VEHICULOS:
-            cout <<"case3"<< endl;
+
+        case LISTAR_VEHICULOS:{
+            cout <<"Estacionamiento"<< endl;
+            cout <<"¿Qué vehículos desea mostrar?"<< endl;
+            cout <<"1.- Automóvil "<< endl;
+            cout <<"2.- Motocicleta "<< endl;
+            ValidarOpciones();
+            limpiarPantalla();
+
+            if(opcion == 1 ){
+                mostrarArregloCoches();
+            }else if(opcion == 2){
+                    mostrarArregloMotos();
+                    }else{
+                        cout << "Formato no válido, intentelo de nuevo." << endl;
+                    }
+
+
+
             limpiarPantallaPausado();
             break;
+            }
+
         case EDITAR_VEHICULO:
             cout <<"case4"<< endl;
             limpiarPantallaPausado();
@@ -58,6 +93,9 @@ int main()
             limpiarPantallaPausado();
         }
     }while(opcionMenuPrincipal!=SALIR);
+
+    delete[] Motos;
+    delete[] Coches;
 
     return 0;
 }

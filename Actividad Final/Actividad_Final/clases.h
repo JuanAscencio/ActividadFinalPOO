@@ -1,5 +1,7 @@
 #ifndef CLASES_H_INCLUDED
 #define CLASES_H_INCLUDED
+#define DATO_POR_DEFECTO_NUMERICO   0
+#define DATO_POR_DEFECTO_TEXTUAL    "N/E"
 
 using namespace std;
 /*----------------------------------------------------------------------------------------------------------------------
@@ -14,7 +16,7 @@ private:
     string placas;
     string color;
 public:
-    Vehiculo(string,string,string,string,string,string);
+    Vehiculo();
     ~Vehiculo();
     virtual void mostrarDatos();
     void setMarca(string m);
@@ -31,13 +33,13 @@ public:
     string getColor();
 };
 
-Vehiculo::Vehiculo(string _marca,string _modelo,string _nota,string _transmision,string _placas,string _color){
-    marca = _marca;
-    modelo = _modelo;
-    nota = _nota;
-    transmision = _transmision;
-    placas = _placas;
-    color = _color;
+Vehiculo::Vehiculo(){
+    marca = DATO_POR_DEFECTO_TEXTUAL;
+    modelo = DATO_POR_DEFECTO_TEXTUAL;
+    nota = DATO_POR_DEFECTO_TEXTUAL;
+    transmision = DATO_POR_DEFECTO_TEXTUAL;
+    placas = DATO_POR_DEFECTO_TEXTUAL;
+    color = DATO_POR_DEFECTO_TEXTUAL;
 }
 Vehiculo::~Vehiculo(){
 }
@@ -100,7 +102,7 @@ private:
     short numeroVentanas;
     short numeroPuertas;
 public:
-    Automovil(string,string,string,string,string,string,short,short);
+    Automovil();
     ~Automovil();
     void mostrarDatos();
     void setNumeroVentanas(short nV);
@@ -109,11 +111,9 @@ public:
     short getNumeroPuertas();
 };
 
-Automovil::Automovil(string _marca,string _modelo,string _nota,string _transmision,string _placas,string _color,
-                     short _numeroVentanas,short _numeroPuertas) : Vehiculo(_marca, _modelo, _nota,_transmision,
-                                                                            _placas, _color){
-    numeroPuertas = _numeroPuertas;
-    numeroVentanas = _numeroVentanas;
+Automovil::Automovil() : Vehiculo(){
+    numeroPuertas = DATO_POR_DEFECTO_NUMERICO;
+    numeroVentanas = DATO_POR_DEFECTO_NUMERICO;
 }
 
 Automovil::~Automovil(){
@@ -145,16 +145,15 @@ class Motocicleta : public Vehiculo{
 private:
     short numeroCascos;
 public:
-    Motocicleta(string,string,string,string,string,string,short);
+    Motocicleta();
     ~Motocicleta();
     void mostrarDatos();
     void setNumeroCascos(short nC);
     short getNumeroCascos();
 };
 
-Motocicleta::Motocicleta(string _marca,string _modelo,string _nota,string _transmision,string _placas,string _color,
-                     short _numeroCascos) : Vehiculo(_marca, _modelo, _nota,_transmision,_placas, _color){
-    numeroCascos = _numeroCascos;
+Motocicleta::Motocicleta() : Vehiculo(){
+    numeroCascos = DATO_POR_DEFECTO_NUMERICO;
 }
 
 Motocicleta::~Motocicleta(){
