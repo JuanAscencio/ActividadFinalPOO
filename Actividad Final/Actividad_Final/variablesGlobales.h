@@ -4,8 +4,9 @@
 
 Motocicleta *Motos;
 Automovil *Coches;
-int cajonesCarro,cajonesMoto,opcionMenuPrincipal,opcion;
+
 int contadorArregloMotos=CONTADOR,contadorArregloCoches=CONTADOR;
+int cajonesCarro,cajonesMoto,opcionMenuPrincipal,opcion;
 string s;
 
 #endif // VARIABLESGLOBALES_H_INCLUDED

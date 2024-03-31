@@ -5,18 +5,25 @@
 #include<cstdlib>
 #include "funciones.h"
 #include "variablesGlobales.h"
+
 using namespace std;
+
+//------------------------------- Prototipos
+
 void pausar();
 void limpiarPantalla();
 void limpiarPantallaPausado();
 void ValidarMenuPrincipal();
 void ValidarOpciones();
-void crearArregloMotos();
+void crearArregloMotos(int cajonesMoto);
+void agregarMoto();
 void mostrarArregloMotos();
-void crearArregloCoches();
+void crearArregloCoches(int cajonesCarro);
+void agregarCarro();
 void mostrarArregloCoches();
 
-//-------------------------------
+
+//------------------------------- Subrutinas
 
 void pausar(){
     system("pause");
@@ -32,34 +39,37 @@ void ValidarMenuPrincipal(){
     cout << "Opción: ";
     cin >> s;
 
-    if(EsNumero(s))
+    if(EsNumero(s)){
         opcionMenuPrincipal = ConvertirStringNumero(s);
-
+    }
 }
 void ValidarOpciones(){
     cout << "Opción: ";
     cin >> s;
 
-    if(EsNumero(s))
+    if(EsNumero(s)){
         opcion = ConvertirStringNumero(s);
-
+    }
 }
 //-------------------------------------------ARREGLO OBJETO MOTOCICLETA-----------------------------------------------//
-void crearArregloMotos(){
-    short numeroCascos;
-    string marca;
-    string modelo;
-    string nota;
-    string transmicion;
-    string placas;
-    string color;
-
+void crearArregloMotos(int cajonesMoto){
     Motos = new Motocicleta[cajonesMoto];
+}
 
+void agregarMoto(){
     if(contadorArregloMotos<cajonesMoto){
-        cin.get();
+        short numeroCascos;
+        string marca;
+        string modelo;
+        string nota;
+        string transmicion;
+        string placas;
+        string color;
+
+        cin.ignore();
         cout << "Estacionamiento" << endl;
-        cout << "Ingrese el dato que se le pide" << endl << endl;
+        cout << "Espacios disponibles: " << cajonesMoto-contadorArregloMotos << " de " << contadorArregloMotos << endl;
+        cout << "Ingrese el dato que se le pide (moto)" << endl << endl;
 
         cout << "Marca:              ";
         getline(cin,marca);
@@ -86,16 +96,28 @@ void crearArregloMotos(){
         Motos[contadorArregloMotos].setNumeroCascos(numeroCascos);
 
         contadorArregloMotos++;
+    }else{
+        cout << "Estacionamiento" << endl;
+        cout << "Cajones de motos llenos" << endl << endl;
     }
+
 }
+
 void mostrarArregloMotos(){
     for(int i=0;i<cajonesMoto;i++){
+        cout << "Estacionamiento" << endl;
+        cout << "Cajón de moto número [" << i+1 << "] de ["<< cajonesMoto <<"]." << endl;
         Motos[i].mostrarDatos();
+        limpiarPantallaPausado();
     }
 }
 
 //--------------------------------------------ARREGLO OBJETO AUTOMOVIL------------------------------------------------//
-void crearArregloCoches(){
+void crearArregloCoches(int cajonesCarro){
+    Coches = new Automovil[cajonesCarro];
+}
+
+void agregarCarro(){
     string marca;
     string modelo;
     string nota;
@@ -105,12 +127,11 @@ void crearArregloCoches(){
     short numeroVentanas;
     short numeroPuertas;
 
-    Coches = new Automovil[cajonesCarro];
-
     if(contadorArregloCoches<cajonesCarro){
-        cin.get();
+        cin.ignore();
         cout << "Estacionamiento" << endl;
-        cout << "Ingrese el dato que se le pide" << endl << endl;
+        cout << "Espacios disponibles: " <<cajonesCarro-contadorArregloCoches<< " de " << contadorArregloCoches << endl;
+        cout << "Ingrese el dato que se le pide (coche)" << endl << endl;
 
         cout << "Marca:                ";
         getline(cin,marca);
@@ -140,20 +161,17 @@ void crearArregloCoches(){
         Coches[contadorArregloCoches].setNumeroVentanas(numeroVentanas);
 
         contadorArregloCoches++;
+    }else{
+        cout << "Estacionamiento" << endl;
+        cout << "Cajones de coche llenos" << endl << endl;
     }
 }
 void mostrarArregloCoches(){
     for(int i=0;i<cajonesCarro;i++){
         cout << "Estacionamiento" << endl;
-        cout << "Los datos del vehículo son:" << endl;
-        cout << "Marca:                 " << Coches[i].getMarca() << endl;
-        cout << "Modelo:                " << Coches[i].getModelo() << endl;
-        cout << "Transmisión:           " << Coches[i].getTranmision()<< endl;
-        cout << "Placas:                " << Coches[i].getPlacas() << endl;
-        cout << "Color:                 " << Coches[i].getColor()<< endl;
-        cout << "Numero de ventanas:    " << Coches[i].getNumeroVentanas()<< endl;
-        cout << "Numero de puertas:     " << Coches[i].getNumeroPuertas()<< endl;
-        cout << "Nota:                  " << Coches[i].getNota() << endl;
+        cout << "Cajón de carro número [" << i+1 << "] de ["<< cajonesCarro <<"]." << endl;
+        Coches[i].mostrarDatos();
+        limpiarPantallaPausado();
     }
 }
 

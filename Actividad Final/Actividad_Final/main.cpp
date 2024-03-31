@@ -6,6 +6,7 @@
 #include "variablesGlobales.h"
 
 enum {REGISTRA_VEHICULO=1,ELIMINAR_VEHICULO,LISTAR_VEHICULOS,EDITAR_VEHICULO,SALIR};
+enum {AUTOMOVIL=1,MOTOCICLETA};
 
 using namespace std;
 
@@ -15,8 +16,10 @@ int main()
 
     //Función registrar cajones
     cout << "Estacionamiento" << endl;
-    cout << "Ingrese el numero de cajones para automóvil: "; cin >> cajonesCarro;
-    cout << "Ingrese el numero de cajones para motocicleta: "; cin >> cajonesMoto;
+    cout << "Ingrese el numero de cajones para automóvil:    "; cin >> cajonesCarro;
+    cout << "Ingrese el numero de cajones para motocicleta:  "; cin >> cajonesMoto;
+    crearArregloMotos(cajonesMoto);
+    crearArregloCoches(cajonesCarro);
 
 
     //Funcion menú principal
@@ -40,10 +43,10 @@ int main()
             ValidarOpciones();
             limpiarPantalla();
 
-            if(opcion == 1 ){
-                crearArregloCoches();
-            }else if(opcion == 2){
-                    crearArregloMotos();
+            if(opcion == AUTOMOVIL ){
+                agregarCarro();
+            }else if(opcion == MOTOCICLETA){
+                    agregarMoto();
                     }else{
                         cout << "Formato no válido, intentelo de nuevo." << endl;
                     }
@@ -65,17 +68,14 @@ int main()
             ValidarOpciones();
             limpiarPantalla();
 
-            if(opcion == 1 ){
+            if(opcion == AUTOMOVIL ){
                 mostrarArregloCoches();
-            }else if(opcion == 2){
+            }else if(opcion == MOTOCICLETA){
                     mostrarArregloMotos();
                     }else{
                         cout << "Formato no válido, intentelo de nuevo." << endl;
                     }
 
-
-
-            limpiarPantallaPausado();
             break;
             }
 
