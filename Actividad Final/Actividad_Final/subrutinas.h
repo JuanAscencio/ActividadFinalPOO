@@ -5,36 +5,46 @@
 #include<cstdlib>
 #include "funciones.h"
 #include "variablesGlobales.h"
+#include "arregloCoches.h"
+#include "arregloMotos.h"
 
 using namespace std;
 
-//------------------------------- Prototipos
+//-------------------------------------------------PROTOTIPOS---------------------------------------------------------//
 
-void pausar();
 void limpiarPantalla();
 void limpiarPantallaPausado();
+
+
 void ValidarMenuPrincipal();
 void ValidarOpciones();
-void crearArregloMotos(int cajonesMoto);
-void agregarMoto();
-void mostrarArregloMotos();
-void crearArregloCoches(int cajonesCarro);
-void agregarCarro();
-void mostrarArregloCoches();
 
 
-//------------------------------- Subrutinas
+void ValidarCajonesAutomovil();
+void ValidarCajonesMotocicleta();
 
-void pausar(){
-    system("pause");
-}
+
+void validarEliminarAutomovil();
+void validarEliminarMotocicleta();
+
+
+void validarSobrescribirAutomovil();
+void validarSobrescribirMotocicleta();
+
+
+//--------------------------------------------------SUBRUTINAS--------------------------------------------------------//
+
 void limpiarPantalla(){
     system("cls");
 }
+
 void limpiarPantallaPausado(){
     system("pause");
     system("cls");
 }
+
+//-----------------------------------------------VALIDAR OPCIONES-----------------------------------------------------//
+
 void ValidarMenuPrincipal(){
     cout << "Opción: ";
     cin >> s;
@@ -43,6 +53,7 @@ void ValidarMenuPrincipal(){
         opcionMenuPrincipal = ConvertirStringNumero(s);
     }
 }
+
 void ValidarOpciones(){
     cout << "Opción: ";
     cin >> s;
@@ -51,127 +62,126 @@ void ValidarOpciones(){
         opcion = ConvertirStringNumero(s);
     }
 }
-//-------------------------------------------ARREGLO OBJETO MOTOCICLETA-----------------------------------------------//
-void crearArregloMotos(int cajonesMoto){
-    Motos = new Motocicleta[cajonesMoto];
-}
 
-void agregarMoto(){
-    if(contadorArregloMotos<cajonesMoto){
-        short numeroCascos;
-        string marca;
-        string modelo;
-        string nota;
-        string transmicion;
-        string placas;
-        string color;
+//------------------------------------------------VALIDAR CAJONES-----------------------------------------------------//
+                                                //   AUTOMÓVIL   //
+void ValidarCajonesAutomovil(){
+    cout << "Ingrese el número de cajones para automóvil:      ";
+    cin >> s;
 
-        cin.ignore();
-        cout << "Estacionamiento" << endl;
-        cout << "Espacios disponibles: " << cajonesMoto-contadorArregloMotos << " de " << contadorArregloMotos << endl;
-        cout << "Ingrese el dato que se le pide (moto)" << endl << endl;
-
-        cout << "Marca:              ";
-        getline(cin,marca);
-        cout << "Modelo:             ";
-        getline(cin,modelo);
-        cout << "Nota:               ";
-        getline(cin,nota);
-        cout << "Transmición:        ";
-        getline(cin,transmicion);
-        cout << "Placas:             ";
-        getline(cin,placas);
-        cout << "Color:              ";
-        getline(cin,color);
-        cout << "Numero de cascos:   ";
-        cin >> numeroCascos;
-        cout << endl;
-
-        Motos[contadorArregloMotos].setMarca(marca);
-        Motos[contadorArregloMotos].setModelo(modelo);
-        Motos[contadorArregloMotos].setNota(nota);
-        Motos[contadorArregloMotos].setTransmision(transmicion);
-        Motos[contadorArregloMotos].setPlacas(placas);
-        Motos[contadorArregloMotos].setColor(color);
-        Motos[contadorArregloMotos].setNumeroCascos(numeroCascos);
-
-        contadorArregloMotos++;
-    }else{
-        cout << "Estacionamiento" << endl;
-        cout << "Cajones de motos llenos" << endl << endl;
+    if(EsNumero(s)){
+        cajonesCarro = ConvertirStringNumero(s);}
+        else{
+            cout << "\nValor no válido. Inténtelo de nuevo." << endl;
+            limpiarPantallaPausado();
+            ValidarCajonesAutomovil();
+        }
     }
 
-}
+                                                //   MOTOCICLETA   //
+void ValidarCajonesMotocicleta(){
+    cout << "Ingrese el número de cajones para motocicleta:    ";
+    cin >> s;
 
-void mostrarArregloMotos(){
-    for(int i=0;i<cajonesMoto;i++){
-        cout << "Estacionamiento" << endl;
-        cout << "Cajón de moto número [" << i+1 << "] de ["<< cajonesMoto <<"]." << endl;
-        Motos[i].mostrarDatos();
+if(EsNumero(s)){
+    cajonesMoto = ConvertirStringNumero(s);}
+    else{
+        cout << "\nValor no válido. Inténtelo de nuevo." << endl;
         limpiarPantallaPausado();
+        ValidarCajonesAutomovil();
     }
 }
 
-//--------------------------------------------ARREGLO OBJETO AUTOMOVIL------------------------------------------------//
-void crearArregloCoches(int cajonesCarro){
-    Coches = new Automovil[cajonesCarro];
-}
-
-void agregarCarro(){
-    string marca;
-    string modelo;
-    string nota;
-    string transmicion;
-    string placas;
-    string color;
-    short numeroVentanas;
-    short numeroPuertas;
-
-    if(contadorArregloCoches<cajonesCarro){
-        cin.ignore();
-        cout << "Estacionamiento" << endl;
-        cout << "Espacios disponibles: " <<cajonesCarro-contadorArregloCoches<< " de " << contadorArregloCoches << endl;
-        cout << "Ingrese el dato que se le pide (coche)" << endl << endl;
-
-        cout << "Marca:                ";
-        getline(cin,marca);
-        cout << "Modelo:               ";
-        getline(cin,modelo);
-        cout << "Nota:                 ";
-        getline(cin,nota);
-        cout << "Transmición:          ";
-        getline(cin,transmicion);
-        cout << "Placas:               ";
-        getline(cin,placas);
-        cout << "Color:                ";
-        getline(cin,color);
-        cout << "Numero de ventanas:   ";
-        cin >> numeroVentanas;
-        cout << "Numero de puertas:    ";
-        cin >> numeroPuertas;
-        cout << endl;
-
-        Coches[contadorArregloCoches].setMarca(marca);
-        Coches[contadorArregloCoches].setModelo(modelo);
-        Coches[contadorArregloCoches].setNota(nota);
-        Coches[contadorArregloCoches].setTransmision(transmicion);
-        Coches[contadorArregloCoches].setPlacas(placas);
-        Coches[contadorArregloCoches].setColor(color);
-        Coches[contadorArregloCoches].setNumeroPuertas(numeroPuertas);
-        Coches[contadorArregloCoches].setNumeroVentanas(numeroVentanas);
-
-        contadorArregloCoches++;
+//-------------------------------------------VALIDAR ELIMINAR VEHÍCULO------------------------------------------------//
+                                                //   AUTOMÓVIL   //
+void validarEliminarAutomovil(){
+    if(contadorArregloCoches==CERO){
+        cout <<"Estacionamiento"<< endl;
+        cout <<"No ha ingresado ningún coche. " << endl;
     }else{
-        cout << "Estacionamiento" << endl;
-        cout << "Cajones de coche llenos" << endl << endl;
+        cout <<"Estacionamiento"<< endl;
+        cout <<"¿Qué posición desea eliminar? " << endl;
+
+        for(int i=0;i<cajonesCarro;i++){
+            cout << i+UNO << ". " << Coches[i].getMarca() << " - " << Motos[i].getModelo() << endl;
+        }
+
+        ValidarOpciones();
+
+        if(opcion>CERO && opcion<=cajonesCarro){
+        eliminarElementoCoche(opcion);
+        }else{
+            cout << "Formato no válido, intentelo de nuevo. " << endl;
+        }
     }
 }
-void mostrarArregloCoches(){
-    for(int i=0;i<cajonesCarro;i++){
-        cout << "Estacionamiento" << endl;
-        cout << "Cajón de carro número [" << i+1 << "] de ["<< cajonesCarro <<"]." << endl;
-        Coches[i].mostrarDatos();
-        limpiarPantallaPausado();
+
+                                                //   MOTOCICLETA   //
+void validarEliminarMotocicleta(){
+    if(contadorArregloMotos==CERO){
+        cout <<"Estacionamiento"<< endl;
+        cout <<"No ha ingresado ningúna moto. " << endl;
+    }else{
+        cout <<"Estacionamiento"<< endl;
+        cout <<"¿Qué posición desea eliminar? " << endl;
+
+        for(int i=0;i<cajonesMoto;i++){
+        cout << i+UNO << ". " << Motos[i].getMarca() << " - " << Motos[i].getModelo() <<  endl;
+        }
+
+        ValidarOpciones();
+
+        if(opcion>CERO && opcion<=cajonesMoto){
+            eliminarElementoMoto(opcion);
+        }else{
+            cout << "Formato no válido, intentelo de nuevo. " << endl;
+        }
+    }
+}
+
+//-----------------------------------------VALIDAR SOBRESCRIBIR VEHÍCULO----------------------------------------------//
+                                                //   AUTOMÓVIL   //
+void validarSobrescribirAutomovil(){
+    if(contadorArregloCoches==CERO){
+        cout <<"Estacionamiento"<< endl;
+        cout <<"No ha ingresado ningún coche. " << endl;
+    }else{
+        cout <<"Estacionamiento"<< endl;
+        cout <<"¿Qué posición desea sobrescribir? " << endl;
+
+        for(int i=0;i<cajonesCarro;i++){
+            cout << i+UNO << ". " << Coches[i].getMarca() << " - " << Coches[i].getModelo() << endl;
+        }
+
+        ValidarOpciones();
+
+        if(opcion>CERO && opcion<=cajonesCarro){
+            sobrescribirElementoCoche(opcion);
+        }else{
+            cout << "Formato no válido, intentelo de nuevo. " << endl;
+        }
+    }
+}
+                                                //   MOTOCICLETA   //
+void validarSobrescribirMotocicleta(){
+    if(contadorArregloMotos==CERO){
+        cout <<"Estacionamiento"<< endl;
+        cout <<"No ha ingresado ninguna moto. " << endl;
+    }else{
+        cout <<"Estacionamiento"<< endl;
+        cout <<"¿Qué posición desea sobrescribir? " << endl;
+
+        for(int i=0;i<cajonesMoto;i++){
+            cout << i+UNO << ". " << Motos[i].getMarca() << " - " << Motos[i].getModelo() << endl;
+        }
+
+        ValidarOpciones();
+
+        if(opcion>CERO && opcion<=cajonesMoto){
+            sobrescribirElementoMoto(opcion);
+        }else{
+            cout << "Formato no válido, intentelo de nuevo. " << endl;
+        }
     }
 }
 

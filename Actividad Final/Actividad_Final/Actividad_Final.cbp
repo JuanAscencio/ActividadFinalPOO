@@ -32,6 +32,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="arregloCoches.h" />
+		<Unit filename="arregloMotos.h" />
 		<Unit filename="clases.h" />
 		<Unit filename="funciones.h" />
 		<Unit filename="main.cpp" />

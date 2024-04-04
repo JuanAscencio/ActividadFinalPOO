@@ -45,12 +45,12 @@ Vehiculo::~Vehiculo(){
 }
 void Vehiculo::mostrarDatos(){
     cout << "Los datos del vehículo son:" << endl;
-    cout << "Marca:                 " << marca << endl;
-    cout << "Modelo:                " << modelo << endl;
-    cout << "Transmisión:           " << transmision << endl;
-    cout << "Placas:                " << placas << endl;
-    cout << "Color:                 " << color << endl;
-    cout << "Nota:                  " << nota << endl;
+    cout << "Marca:                             " << marca << endl;
+    cout << "Modelo:                            " << modelo << endl;
+    cout << "Color:                             " << color << endl;
+    cout << "Transmisión:                       " << transmision << endl;
+    cout << "Placas:                            " << placas << endl;
+    cout << "Nota:                              " << nota << endl;
 }
 
 void Vehiculo::setMarca(string m){
@@ -121,8 +121,8 @@ Automovil::~Automovil(){
 
 void Automovil::mostrarDatos(){
     Vehiculo::mostrarDatos();
-    cout << "Número de puertas:     " << numeroPuertas << endl;
-    cout << "Número de ventanas:    " << numeroVentanas << endl;
+    cout << "Número de puertas sin detalles:    " << numeroPuertas << endl;
+    cout << "Número de ventanas sin detalles:   " << numeroVentanas << endl;
 }
 
 void Automovil::setNumeroVentanas(short nV){
@@ -161,7 +161,7 @@ Motocicleta::~Motocicleta(){
 
 void Motocicleta::mostrarDatos(){
     Vehiculo::mostrarDatos();
-    cout << "Número de cascos:      " << numeroCascos << endl;
+    cout << "Número de cascos que entregó:      " << numeroCascos << endl;
 }
 
 void Motocicleta::setNumeroCascos(short nC){

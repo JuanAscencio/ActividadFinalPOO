@@ -1,12 +1,14 @@
 #include <iostream>
-#include <stdlib.h>
 #include "clases.h"
 #include "subrutinas.h"
+#include "arregloCoches.h"
+#include "arregloMotos.h"
 #include "funciones.h"
 #include "variablesGlobales.h"
+#include <stdlib.h>
 
-enum {REGISTRA_VEHICULO=1,ELIMINAR_VEHICULO,LISTAR_VEHICULOS,EDITAR_VEHICULO,SALIR};
-enum {AUTOMOVIL=1,MOTOCICLETA};
+enum {REGISTRAR_SOBRESCRIBIR=UNO,ELIMINAR_VEHICULO,LISTAR_VEHICULOS,SALIR};
+enum {AUTOMOVIL=UNO,MOTOCICLETA};
 
 using namespace std;
 
@@ -14,10 +16,10 @@ int main()
 {
     setlocale(LC_ALL,"");
 
-    //Función registrar cajones
     cout << "Estacionamiento" << endl;
-    cout << "Ingrese el numero de cajones para automóvil:    "; cin >> cajonesCarro;
-    cout << "Ingrese el numero de cajones para motocicleta:  "; cin >> cajonesMoto;
+    ValidarCajonesAutomovil();
+    ValidarCajonesMotocicleta();
+
     crearArregloMotos(cajonesMoto);
     crearArregloCoches(cajonesCarro);
 
@@ -26,39 +28,91 @@ int main()
     do{
         limpiarPantalla();
         cout << "Estacionamiento" << endl;
-        cout << "1. Registrar vehículo" << endl;
+        cout << "1. Registrar o sobrescribir vehículo" << endl;
         cout << "2. Eliminar vehículo" << endl;
         cout << "3. Listar vehículos" << endl;
-        cout << "4. Editar vehículo" << endl;
-        cout << "5. Salir" << endl;
+        cout << "4. Salir" << endl;
         ValidarMenuPrincipal();
         limpiarPantalla();
 
         switch(opcionMenuPrincipal){
-        case REGISTRA_VEHICULO:{
+
+        case REGISTRAR_SOBRESCRIBIR:{
             cout <<"Estacionamiento"<< endl;
-            cout <<"¿Desea ingresar un automóvil o una motocicleta?"<< endl;
+            cout <<"¿Desea registrar un vehículo o sobrescribirlo?"<< endl;
+            cout <<"1.- Registrar "<< endl;
+            cout <<"2.- Sobrescribir "<< endl;
+            ValidarOpciones();
+            limpiarPantalla();
+
+            switch(opcion){
+            case REGISTRAR:{
+                cout <<"Estacionamiento"<< endl;
+                cout <<"¿Desea ingresar un automóvil o una motocicleta?"<< endl;
+                cout <<"1.- Automóvil "<< endl;
+                cout <<"2.- Motocicleta "<< endl;
+                ValidarOpciones();
+                limpiarPantalla();
+
+                if(opcion == AUTOMOVIL ){
+                    agregarCarro();
+                }else if(opcion == MOTOCICLETA){
+                        agregarMoto();
+                        }else{
+                            cout << "Formato no válido, intentelo de nuevo." << endl;
+                        }
+
+                }
+
+                break;
+
+            case SOBRESCRIBIR:
+                cout <<"Estacionamiento"<< endl;
+                cout <<"¿Qué clase de vehículo desea sobrescribir?"<< endl;
+                cout <<"1.- Automóvil "<< endl;
+                cout <<"2.- Motocicleta "<< endl;
+                ValidarOpciones();
+                limpiarPantalla();
+
+                if(opcion==AUTOMOVIL){
+                    validarSobrescribirAutomovil();
+                }else if(opcion==MOTOCICLETA){
+                            validarSobrescribirMotocicleta();
+                        }else{
+                            cout << "Formato no válido, intentelo de nuevo." << endl;
+                        }
+
+                break;
+
+            default:{
+                cout << "Formato no válido, intentelo de nuevo." << endl;
+            }
+
+            }
+
+            limpiarPantallaPausado();
+            break;
+            }
+
+        case ELIMINAR_VEHICULO:{
+            cout <<"Estacionamiento"<< endl;
+            cout <<"¿Qué clase de vehículo desea eliminar?"<< endl;
             cout <<"1.- Automóvil "<< endl;
             cout <<"2.- Motocicleta "<< endl;
             ValidarOpciones();
             limpiarPantalla();
 
-            if(opcion == AUTOMOVIL ){
-                agregarCarro();
-            }else if(opcion == MOTOCICLETA){
-                    agregarMoto();
+            if(opcion==AUTOMOVIL){
+                validarEliminarAutomovil();
+            }else if(opcion==MOTOCICLETA){
+                        validarEliminarMotocicleta();
                     }else{
                         cout << "Formato no válido, intentelo de nuevo." << endl;
                     }
 
             limpiarPantallaPausado();
             break;
-            }
-
-        case ELIMINAR_VEHICULO:
-            cout <<"case2"<< endl;
-            limpiarPantallaPausado();
-            break;
+        }
 
         case LISTAR_VEHICULOS:{
             cout <<"Estacionamiento"<< endl;
@@ -79,19 +133,16 @@ int main()
             break;
             }
 
-        case EDITAR_VEHICULO:
-            cout <<"case4"<< endl;
-            limpiarPantallaPausado();
-            break;
         case SALIR:
             cout <<"case5, adio"<< endl;
-            pausar();
             break;
+
         default:
             cout <<"Formato no válido"<< endl;
             cout <<"Intentelo de nuevo"<< endl<<endl;
             limpiarPantallaPausado();
         }
+
     }while(opcionMenuPrincipal!=SALIR);
 
     delete[] Motos;

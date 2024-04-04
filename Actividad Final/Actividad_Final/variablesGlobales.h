@@ -1,11 +1,14 @@
 #ifndef VARIABLESGLOBALES_H_INCLUDED
 #define VARIABLESGLOBALES_H_INCLUDED
-#define CONTADOR 0
+#define REGISTRAR 1
+#define SOBRESCRIBIR 2
+#define CERO 0
+#define UNO 1
 
-Motocicleta *Motos;
+Motocicleta *Motos;//, *copiaMotos;
 Automovil *Coches;
 
-int contadorArregloMotos=CONTADOR,contadorArregloCoches=CONTADOR;
+int contadorArregloMotos=CERO,contadorArregloCoches=CERO;
 int cajonesCarro,cajonesMoto,opcionMenuPrincipal,opcion;
 string s;
 
