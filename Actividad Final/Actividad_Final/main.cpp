@@ -7,7 +7,7 @@
 #include "variablesGlobales.h"
 #include <stdlib.h>
 
-enum {REGISTRAR_SOBRESCRIBIR=UNO,ELIMINAR_VEHICULO,LISTAR_VEHICULOS,SALIR};
+enum {REGISTRAR_VEHICULOS=UNO,ELIMINAR_VEHICULO,LISTAR_VEHICULOS,SALIR};
 enum {AUTOMOVIL=UNO,MOTOCICLETA};
 
 using namespace std;
@@ -28,7 +28,7 @@ int main()
     do{
         limpiarPantalla();
         cout << "Estacionamiento" << endl;
-        cout << "1. Registrar o sobrescribir vehículo" << endl;
+        cout << "1. Registrar vehículo" << endl;
         cout << "2. Eliminar vehículo" << endl;
         cout << "3. Listar vehículos" << endl;
         cout << "4. Salir" << endl;
@@ -37,62 +37,31 @@ int main()
 
         switch(opcionMenuPrincipal){
 
-        case REGISTRAR_SOBRESCRIBIR:{
+        case REGISTRAR_VEHICULOS:{
+
             cout <<"Estacionamiento"<< endl;
-            cout <<"¿Desea registrar un vehículo o sobrescribirlo?"<< endl;
-            cout <<"1.- Registrar "<< endl;
-            cout <<"2.- Sobrescribir "<< endl;
+            cout <<"¿Desea ingresar un automóvil o una motocicleta?"<< endl;
+            cout <<"1.- Automóvil "<< endl;
+            cout <<"2.- Motocicleta "<< endl;
             ValidarOpciones();
             limpiarPantalla();
 
             switch(opcion){
-            case REGISTRAR:{
-                cout <<"Estacionamiento"<< endl;
-                cout <<"¿Desea ingresar un automóvil o una motocicleta?"<< endl;
-                cout <<"1.- Automóvil "<< endl;
-                cout <<"2.- Motocicleta "<< endl;
-                ValidarOpciones();
-                limpiarPantalla();
+            case AUTOMOVIL:
+                validarRegistrarAutomovil();
+                break;
 
-                if(opcion == AUTOMOVIL ){
-                    agregarCarro();
-                }else if(opcion == MOTOCICLETA){
-                        agregarMoto();
-                        }else{
-                            cout << "Formato no válido, intentelo de nuevo." << endl;
-                        }
+            case MOTOCICLETA:
+                validarRegistrarMotocicleta();
+                break;
 
+            default:
+                cout << "Formato no válido, intentelo de nuevo." << endl;
                 }
 
-                break;
-
-            case SOBRESCRIBIR:
-                cout <<"Estacionamiento"<< endl;
-                cout <<"¿Qué clase de vehículo desea sobrescribir?"<< endl;
-                cout <<"1.- Automóvil "<< endl;
-                cout <<"2.- Motocicleta "<< endl;
-                ValidarOpciones();
-                limpiarPantalla();
-
-                if(opcion==AUTOMOVIL){
-                    validarSobrescribirAutomovil();
-                }else if(opcion==MOTOCICLETA){
-                            validarSobrescribirMotocicleta();
-                        }else{
-                            cout << "Formato no válido, intentelo de nuevo." << endl;
-                        }
-
-                break;
-
-            default:{
-                cout << "Formato no válido, intentelo de nuevo." << endl;
-            }
-
-            }
-
-            limpiarPantallaPausado();
-            break;
-            }
+        limpiarPantallaPausado();
+        break;
+        }
 
         case ELIMINAR_VEHICULO:{
             cout <<"Estacionamiento"<< endl;

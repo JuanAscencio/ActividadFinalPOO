@@ -9,7 +9,7 @@
 
 1711405738 c:\users\usuario\documents\poo\poo - pimienta\actividad final\actividad_final\subrutinas.h
 
-1712211905 source:c:\users\usuario\documents\git\actividadfinalpoo\actividad final\actividad_final\main.cpp
+1712299973 source:c:\users\usuario\documents\git\actividadfinalpoo\actividad final\actividad_final\main.cpp
 	<iostream>
 	"clases.h"
 	"subrutinas.h"
@@ -21,7 +21,7 @@
 
 1712211088 c:\users\usuario\documents\git\actividadfinalpoo\actividad final\actividad_final\clases.h
 
-1712211785 c:\users\usuario\documents\git\actividadfinalpoo\actividad final\actividad_final\subrutinas.h
+1712301054 c:\users\usuario\documents\git\actividadfinalpoo\actividad final\actividad_final\subrutinas.h
 	<string>
 	<cctype>
 	<cstdlib>
@@ -37,14 +37,14 @@
 	<cstdlib>
 	<iostream>
 
-1712207200 c:\users\usuario\documents\git\actividadfinalpoo\actividad final\actividad_final\variablesglobales.h
+1712295697 c:\users\usuario\documents\git\actividadfinalpoo\actividad final\actividad_final\variablesglobales.h
 
-1712212414 c:\users\usuario\documents\git\actividadfinalpoo\actividad final\actividad_final\arreglocoches.h
+1712299780 c:\users\usuario\documents\git\actividadfinalpoo\actividad final\actividad_final\arreglocoches.h
 	"funciones.h"
 	"subrutinas.h"
 	"variablesGlobales.h"
 
-1712212383 c:\users\usuario\documents\git\actividadfinalpoo\actividad final\actividad_final\arreglomotos.h
+1712301420 c:\users\usuario\documents\git\actividadfinalpoo\actividad final\actividad_final\arreglomotos.h
 	"funciones.h"
 	"subrutinas.h"
 	"variablesGlobales.h"
