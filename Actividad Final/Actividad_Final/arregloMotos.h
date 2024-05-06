@@ -32,6 +32,7 @@ void agregarMoto(int posicion){
     string transmicion;
     string placas;
     string color;
+    float horaIngreso;
 
     limpiarPantalla();
     cout << "Estacionamiento" << endl;
@@ -52,6 +53,8 @@ void agregarMoto(int posicion){
     cin.get();
     cout << "Nota:                              ";
     getline(cin,nota);
+    cout << "Hora de ingreso(HH.MM):            ";
+    cin >> horaIngreso;
     cout << endl;
 
     posicion--;
@@ -62,6 +65,7 @@ void agregarMoto(int posicion){
     Motos[posicion].setPlacas(placas);
     Motos[posicion].setColor(color);
     Motos[posicion].setNumeroCascos(numeroCascos);
+    Motos[posicion].setHoraIngreso(horaIngreso);
 
     contadorArregloMotos++;
 }
@@ -85,6 +89,7 @@ void eliminarElementoMoto(int posicion){
     Motos[posicion].setPlacas(DATO_POR_DEFECTO_TEXTUAL);
     Motos[posicion].setColor(DATO_POR_DEFECTO_TEXTUAL);
     Motos[posicion].setNumeroCascos(DATO_POR_DEFECTO_NUMERICO);
+    Motos[posicion].setHoraIngreso(DATO_POR_DEFECTO_NUMERICO);
 
     contadorArregloMotos--;
 }

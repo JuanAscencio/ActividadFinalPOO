@@ -33,6 +33,7 @@ void agregarCarro(int posicion){
     string color;
     short numeroVentanas;
     short numeroPuertas;
+    float horaIngreso;
 
     limpiarPantalla();
     cout << "Estacionamiento" << endl;
@@ -55,6 +56,8 @@ void agregarCarro(int posicion){
     cin.get();
     cout << "Nota:                                 ";
     getline(cin,nota);
+    cout << "Hora de ingreso(HH.MM):               ";
+    cin >> horaIngreso;
     cout << endl;
 
     posicion--;
@@ -66,6 +69,7 @@ void agregarCarro(int posicion){
     Coches[posicion].setColor(color);
     Coches[posicion].setNumeroPuertas(numeroPuertas);
     Coches[posicion].setNumeroVentanas(numeroVentanas);
+    Coches[posicion].setHoraIngreso(horaIngreso);
 
     contadorArregloCoches++;
 }
@@ -90,6 +94,7 @@ void eliminarElementoCoche(int posicion){
     Coches[posicion].setColor(DATO_POR_DEFECTO_TEXTUAL);
     Coches[posicion].setNumeroPuertas(DATO_POR_DEFECTO_NUMERICO);
     Coches[posicion].setNumeroVentanas(DATO_POR_DEFECTO_NUMERICO);
+    Coches[posicion].setHoraIngreso(DATO_POR_DEFECTO_NUMERICO);
     contadorArregloCoches--;
 }
 

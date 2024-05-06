@@ -7,7 +7,7 @@
 #include "variablesGlobales.h"
 #include <stdlib.h>
 
-enum {REGISTRAR_VEHICULOS=UNO,ELIMINAR_VEHICULO,LISTAR_VEHICULOS,SALIR};
+enum {REGISTRAR_VEHICULOS=UNO,ELIMINAR_VEHICULO,LISTAR_VEHICULOS,COBRAR,SALIR};
 enum {AUTOMOVIL=UNO,MOTOCICLETA};
 
 using namespace std;
@@ -31,7 +31,8 @@ int main()
         cout << "1. Registrar vehículo" << endl;
         cout << "2. Eliminar vehículo" << endl;
         cout << "3. Listar vehículos" << endl;
-        cout << "4. Salir" << endl;
+        cout << "4. Cobrar vehículo" << endl;
+        cout << "5. Salir" << endl;
         ValidarMenuPrincipal();
         limpiarPantalla();
 
@@ -102,8 +103,29 @@ int main()
             break;
             }
 
+
+        case COBRAR:
+            cout << "Estacionamiento" << endl;
+            cout << "¿Qué vehiculo desea cobrar?" << endl;
+            cout << "1.- Automóvil" << endl;
+            cout << "2.- Motocicleta" << endl;
+            ValidarOpciones();
+            limpiarPantalla();
+
+            costos();
+
+            if(opcion == AUTOMOVIL){
+                cobrarAutomovil();
+            }else if(opcion==MOTOCICLETA){
+                    cobrarMotocicleta();
+                    }else{
+                        cout << "Formato no válido, intentelo de nuevo." << endl;
+                    }
+            break;
+
         case SALIR:
-            cout <<"case5, adio"<< endl;
+            cout <<"Estacionamiento"<< endl;
+            cout <<"Nos vemos pronto"<< endl;
             break;
 
         default:

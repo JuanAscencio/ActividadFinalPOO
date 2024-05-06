@@ -15,6 +15,7 @@ private:
     string transmision;
     string placas;
     string color;
+    float horaIngreso;
 public:
     Vehiculo();
     ~Vehiculo();
@@ -23,14 +24,16 @@ public:
     void setModelo(string m);
     void setNota(string n);
     void setTransmision(string t);
-    void setPlacas(string t);
-    void setColor(string t);
+    void setPlacas(string p);
+    void setColor(string c);
+    void setHoraIngreso(float h);
     string getMarca();
     string getModelo();
     string getNota();
     string getTranmision();
     string getPlacas();
     string getColor();
+    float getHoraIngreso();
 };
 
 Vehiculo::Vehiculo(){
@@ -40,6 +43,7 @@ Vehiculo::Vehiculo(){
     transmision = DATO_POR_DEFECTO_TEXTUAL;
     placas = DATO_POR_DEFECTO_TEXTUAL;
     color = DATO_POR_DEFECTO_TEXTUAL;
+    horaIngreso = DATO_POR_DEFECTO_NUMERICO;
 }
 Vehiculo::~Vehiculo(){
 }
@@ -51,6 +55,7 @@ void Vehiculo::mostrarDatos(){
     cout << "Transmisión:                       " << transmision << endl;
     cout << "Placas:                            " << placas << endl;
     cout << "Nota:                              " << nota << endl;
+    cout << "Hora de ingreso                    " << horaIngreso << endl;
 }
 
 void Vehiculo::setMarca(string m){
@@ -93,6 +98,13 @@ void Vehiculo::setNota(string n){
 }
 string Vehiculo::getNota(){
     return nota;
+}
+
+void Vehiculo::setHoraIngreso(float h){
+    horaIngreso=h;
+}
+float Vehiculo::getHoraIngreso(){
+    return horaIngreso;
 }
 /*----------------------------------------------------------------------------------------------------------------------
                                                 CLASE HIJA: AUTOMÓVIL
