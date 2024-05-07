@@ -125,7 +125,7 @@ int main()
 
         case SALIR:
             cout <<"Estacionamiento"<< endl;
-            cout <<"Nos vemos pronto"<< endl;
+            cout <<"Adiós"<< endl;
             break;
 
         default:

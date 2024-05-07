@@ -120,14 +120,17 @@ void validarEliminarAutomovil(){
         for(int i=0;i<cajonesCarro;i++){
             cout << i+UNO << ". " << Coches[i].getMarca() << " - " << Coches[i].getModelo() << endl;
         }
+        cout << cajonesCarro+UNO << ". Salir" << endl << endl;
 
         ValidarOpciones();
 
         if(opcion>CERO && opcion<=cajonesCarro){
             eliminarElementoCoche(opcion);
-        }else{
-            cout << "Formato no válido, intentelo de nuevo. " << endl;
-        }
+        }else if(opcion==cajonesCarro+UNO){
+            cout << "" << endl;
+                }else{
+                    cout << "Formato no válido, intentelo de nuevo. " << endl;
+                    }
 
     }
 }
@@ -145,14 +148,17 @@ void validarEliminarMotocicleta(){
         for(int i=0;i<cajonesMoto;i++){
         cout << i+UNO << ". " << Motos[i].getMarca() << " - " << Motos[i].getModelo() <<  endl;
         }
+        cout << cajonesMoto+UNO << ". Salir" << endl << endl;
 
         ValidarOpciones();
 
         if(opcion>CERO && opcion<=cajonesMoto){
             eliminarElementoMoto(opcion);
-        }else{
-            cout << "Formato no válido, intentelo de nuevo. " << endl;
-        }
+        }else if(opcion==cajonesMoto+UNO){
+            cout << "" << endl;
+                }else{
+                    cout << "Formato no válido, intentelo de nuevo. " << endl;
+                }
     }
 }
 
@@ -167,7 +173,7 @@ void validarRegistrarAutomovil(){
     for(int i=0;i<cajonesCarro;i++){
         cout << i+UNO << ". " << Coches[i].getMarca() << " - " << Coches[i].getModelo() << endl;
     }
-    cout << cajonesCarro + 1 <<". Salir" << endl << endl;
+    cout << cajonesCarro + UNO <<". Salir" << endl << endl;
 
     ValidarOpciones();
 
@@ -234,6 +240,7 @@ void cobrarAutomovil(){
     for(int i=0;i<cajonesCarro;i++){
         cout << i+UNO << ". " << Coches[i].getMarca() << " - " << Coches[i].getModelo() << endl;
     }
+    cout << cajonesCarro + UNO << ". Salir" << endl << endl;
 
     ValidarOpciones();
 
@@ -305,6 +312,7 @@ void cobrarMotocicleta(){
     for(int i=0;i<cajonesMoto;i++){
         cout << i+UNO << ". " << Motos[i].getMarca() << " - " << Motos[i].getModelo() << endl;
     }
+    cout << cajonesMoto + UNO << ". Salir" << endl << endl;
 
     ValidarOpciones();
 
